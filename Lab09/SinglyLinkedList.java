@@ -44,19 +44,22 @@ public class SinglyLinkedList {
 	*/
 	public void add(int element) {
 		Node newNode = new Node(element);
-		Node tail = null;
 
 		if (head == null) {
 			//Provide implementation where element is added at the head node.
 			head = newNode;
-			tail = newNode;
+			
 		} else {
 			//Provide implementation where element is added to a list that is not empty.
+			Node tail = this.head;
+			
 			//One way is to make the head node the tail node and "iterate"(tail side) through by 
+			while(tail.next != null){//reaching for the tail of the linbk list
 			//making the tail node's next node the new tail and then assigning the new 
-			//node as the tail node's next node.
+				tail = tail.next;
+			//node as the tail node's next node.	
+			}
 			tail.next = newNode;
-			tail = newNode;
 		}
 	}
 	
