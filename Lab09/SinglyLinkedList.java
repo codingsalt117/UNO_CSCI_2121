@@ -27,16 +27,24 @@ public class SinglyLinkedList {
 		Node current = this.head;
 		if(index < 0){
 			//If the index is less than zero we return -999.
+			return -999;
 		} 
+		
 		else if(index == 0 && current != null) {
 			//If the index is the first index we will return whatever value is the head node.
+			return current.data;
 		} 
+		
 		else {
 			//In all other cases iterate through the nodes until the correctly indexed node is found.
 			//Then we would return the data inside the node.
-
+			while ( index != 0){
+				current = current.next;
+				index--;
+			}
+			return current.data;
 		}
-	
+	}
 	/**
 	* Adds an element to the end of the list.
 	*
@@ -47,10 +55,14 @@ public class SinglyLinkedList {
 
 		if (head == null) {
 			//Provide implementation where element is added at the head node.
+			newNode.next = null;
 			head = newNode;
 			
-		} else {
+		} 
+
+		else {
 			//Provide implementation where element is added to a list that is not empty.
+			newNode.next = null;
 			Node tail = this.head;
 			
 			//One way is to make the head node the tail node and "iterate"(tail side) through by 
@@ -76,13 +88,30 @@ public class SinglyLinkedList {
 		if (index == 0) {
 			
 			//Provide implementation where the index at which to add an element is 0.
-			
+			newNode.next = head;
+			head = newNode;
 			//KEEP THIS LINE TO PRINT RESULT!
 			System.out.println("Element " + element + " was added at index " + index + ".");
-		} else {
+		} 
+
+		else {
 			
 			//Provide implementation where the index at which to add an element is greater than 0.
-			
+			Node current = this.head;
+			Node previous = null;
+
+			int i = 0;
+			while ( i < index ){
+				previous = current;
+				current = current.next;
+
+				if (current == null){
+					break;
+				}
+				i++;
+			}
+			newNode.next = current;
+			previous.next = newNode;
 			//KEEP THIS LINE TO PRINT RESULT!
 			System.out.println("Element " + element + " was added at index " + printIndex + ".");
 		}
@@ -100,23 +129,26 @@ public class SinglyLinkedList {
 		if (current != null && current.data == element) {
 			
 			//Provide implementation when removing the element from the head.
-			
+			head = head.next;
 			//KEEP THIS LINE TO PRINT RESULT!
 			System.out.println("Element " + element + " was found and removed.");
-		} else {
+		} 
+
+		else {
 			while(current != null && current.data != element) {
-			
 				//Provide implementation to "iterate" through your linked list.
-			
+				previous = current;
+				current = current.next;
 			}
+			
 			//If element was found, then it is at the current node.  Remove it.
 			if (current != null) {
-				
 				//Provide implementation to remove the desired element--e.g., the current node.
-				
+				previous.next = current.next;
 				//KEEP THIS LINE TO PRINT RESULT!
 				System.out.println("Element " + element + " was found and removed.");
 			}
+			
 			//If element was not found, then the current node should be null.
 			if (current == null) {
 				//KEEP THIS LINE TO PRINT RESULT!
@@ -137,22 +169,26 @@ public class SinglyLinkedList {
 		if (index == 0 && current != null) {
 			
 			//Provide implementation where the index from which to remove is 0.
-			
+			head = head.next;
 			//KEEP THIS LINE TO PRINT RESULT!
 			System.out.println("Element at index " + index + " removed.");
-		} else {
+		} 
+
+		else {
 			int counter = 0;
 		
 			while(current != null) {
-				if (counter == index) {
-					
+				previous = current;
+				current = current.next;
+				
+				if (counter == index-1) {
 					//Provide implementation to remove the element from the specified index.
-					
+					previous.next = current.next;
 					//KEEP THIS LINE TO PRINT RESULT!
 					System.out.println("Element at index " + index + " removed.");
 					break;
 				} else {
-					
+					counter++;
 					//Continue "iterating" through your linked list and increment the counter.
 					
 				}

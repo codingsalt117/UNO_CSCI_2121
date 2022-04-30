@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"<Unnamed>","l":"SinglyLinkedList.Node"},{"p":"<Unnamed>","l":"SinglyLinkedList"},{"p":"<Unnamed>","l":"SinglyLinkedListRunner"}]
