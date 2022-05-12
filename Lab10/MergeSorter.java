@@ -2,8 +2,8 @@
 * A class that models the merge sort algorithm recursively.
 * All methods are static and belong to the class.
 *
-* @author	YOUR NAME HERE
-* @version	THE DATE HERE
+* @author	Robin Johnson
+* @version	24April2022
 */
 public class MergeSorter {
 
