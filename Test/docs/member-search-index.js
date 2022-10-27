@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"<Unnamed>","c":"Circle","l":"calculateArea(double, double)","url":"calculateArea(double,double)"},{"p":"<Unnamed>","c":"Circle","l":"Circle(double)","url":"%3Cinit%3E(double)"},{"p":"<Unnamed>","c":"Circle","l":"getCirc()"},{"p":"<Unnamed>","c":"Circle","l":"setCirc(double)"}]
